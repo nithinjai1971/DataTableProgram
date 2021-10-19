@@ -1,0 +1,20 @@
+#table {
+  border-top: 1px solid #333;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  padding: 20px;
+}
+th,
+td,
+tr {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 10px;
+}
+.countryName {
+  margin-bottom: 15px;
+}
+.cityName {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

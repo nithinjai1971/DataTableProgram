@@ -1,0 +1,292 @@
+<html>
+  <head>
+    <title>Data Table</title>
+    <link rel="stylesheet" type="text/css" href="filter.css" />
+  </head>
+
+  <body>
+    <div style="text-align: center" id="filter-body"></div>
+
+    <div id="country-option">
+      <input
+        type="checkbox"
+        class="countryName"
+        name="countries"
+        id="India"
+        value="India"
+        data-bind="checked: countries,click:filterByCountry"
+      />
+      India
+      <input
+        type="checkbox"
+        class="countryName"
+        name="countries"
+        id="America"
+        value="America"
+        data-bind="checked: countries,click:filterByCountry"
+      />
+      America
+      <input
+        type="checkbox"
+        class="countryName"
+        name="countries"
+        id="Australia"
+        value="Australia"
+        data-bind="checked: countries,click:filterByCountry"
+      />
+      Australia
+      <input
+        type="checkbox"
+        class="countryName"
+        name="countries"
+        id="England"
+        value="England"
+        data-bind="checked: countries,click:filterByCountry"
+      />
+      England
+    </div>
+    <div id="state-option">
+      <label class="India states">
+        <input
+          type="checkbox"
+          name="India"
+          value="Chennai"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Chennai</label
+      >
+      <label class="India states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="India"
+          value="Mumbai"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Mumbai</label
+      >
+      <label class="India states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="India"
+          value="Delhi"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Delhi</label
+      >
+      <label class="India states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="India"
+          value="Banglore"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Banglore</label
+      >
+      <label class="America states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="America"
+          value="New York"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        New York</label
+      >
+      <label class="America states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="America"
+          value="Washington"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Washington</label
+      >
+      <label class="America states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="America"
+          value="Los Angels"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Los Angels</label
+      >
+      <label class="America states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="America"
+          value="California"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        California</label
+      >
+      <label class="Australia states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="Australia"
+          value="Canberra"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Canberra</label
+      >
+      <label class="Australia states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="Australia"
+          value="Melbourne"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Melbourne</label
+      >
+      <label class="Australia states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="Australia"
+          value="Sydney"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Sydney</label
+      >
+      <label class="Australia states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="Australia"
+          value="Perth"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Perth</label
+      >
+      <label class="England states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="England"
+          value="London"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        London</label
+      >
+      <label class="England states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="England"
+          value="Southampton"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Southampton&nbsp;&nbsp;</label
+      >
+      <label class="England states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="England"
+          value="Edbaston"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Edgbaston</label
+      >
+      <label class="England states">
+        <input
+          type="checkbox"
+          class="cityName"
+          name="England"
+          value="Manchester"
+          data-bind="checked:cities,click: filterByCity"
+        />
+        Manchester</label
+      >
+    </div>
+    <div id="filter-combobox">
+      <select data-bind="event:{change: ageFilter},value:ageValue">
+        <option value="-1">choose age</option>
+        <option value="20">20-30</option>
+        <option value="31">31-40</option>
+        <option value="41">41-50</option>
+      </select>
+      <select
+        id="salary"
+        data-bind="event:{change: salaryFilter},value:salaryValue"
+      >
+        <option value="-1">choose salary</option>
+        <option value="20000">21000-31000</option>
+        <option value="30001">31001-41000</option>
+        <option value="40001">41001-50000</option>
+      </select>
+      <br /><br />
+      <button type="button" data-bind="click:clearAll">Reset</button>
+    </div>
+
+    <div id="table-head">
+      <div id="select">
+        show
+        <select data-bind="event:{change: showItems},value:rowsPerPage ">
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+        Entries
+      </div>
+      <div id="total">
+        <p
+          id="total-items"
+          data-bind="text: 'Showing ' + rows().length + ' Entries from 100 Entries'"
+        ></p>
+      </div>
+    </div>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Office</th>
+          <th>Salary</th>
+          <th>City</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: paginated">
+        <tr>
+          <td data-bind="text: $data.Name"></td>
+          <td data-bind="text: $data.Age"></td>
+          <td data-bind="text: $data.Office"></td>
+          <td data-bind="text: $data.Salary"></td>
+          <td data-bind="text: $data.City"></td>
+          <td data-bind="text: $data.Country"></td>
+        </tr>
+      </tbody>
+      <tr data-bind="visible: $root.paginated().length == 0">
+        <td colspan="10">
+          <p align="center">No Results found</p>
+        </td>
+      </tr>
+    </table>
+    <div id="pages" data-bind="visible : showPage">
+      <button data-bind="click: previous, enable: hasPrevious">&lt;</button>
+      <button data-bind="click: next, enable: hasNext">1</button>
+      <button data-bind="click: next, enable: hasNext">2</button>
+      <button data-bind="click: next, enable: hasNext">3</button>
+      <button data-bind="click: next, enable: hasNext">4</button>
+      <button data-bind="click: next, enable: hasNext">5</button>
+      <button data-bind="click: next, enable: hasNext">6</button>
+      <button data-bind="click: next, enable: hasNext">7</button>
+      <button data-bind="click: next, enable: hasNext">8</button>
+      <button data-bind="click: next, enable: hasNext">9</button>
+      <button data-bind="click: next, enable: hasNext">10</button>
+      <button data-bind="click: next, enable: hasNext">&gt;</button>
+    </div>
+    <script src="knockout-3.5.1.js"></script>
+    <script src="Datatablearray.js"></script>
+    <script src="filter.js"></script>
+  </body>
+</html>
